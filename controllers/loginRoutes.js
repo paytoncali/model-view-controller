@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Blogs, User } = require('../models');
 const withAuth = require('../utils/auth');
 
+
 router.get('/', async (req, res) => {
   if (req.session.logged_in) {
       res.redirect('homepage');
@@ -10,32 +11,63 @@ router.get('/', async (req, res) => {
   res.render('login');
 });
 
-router.get('/homepage', async (req, res) => {
+router.get('/login', async (req, res) => {
   if (req.session.logged_in) {
-      res.redirect('homepage');
+      res.redirect('/homepage');
       return;
     }
-  res.render('homepage');
+  res.render('login');
 });
 
-// router.get('/homepage', withAuth, async (req, res) => {
-//   try {
-//     // Find the logged in user based on the session ID
-//     const userData = await User.findByPk(req.session.user_id, {
-//       attributes: { exclude: ['password'] },
-//       include: [{ model: Blogs }],
-//     });
+router.get('/homepage', withAuth, async (req, res) => {
+  try {
+      const postData = await Blogs.findAll({
+          where:{
+              user_id: req.session.user_id
+          }
+      });
 
-//     const user = userData.get({ plain: true });
+      const posts = postData.map((posts) => posts.get({ plain: true }));
 
-//     res.render('homepage', {
-//       ...user,
-//       logged_in: true
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+      res.render('homepage', {
+          posts,
+          logged_in: true
+      });
+  } catch (error) {
+      res.status(500).json(error);
+  }
+});
 
+
+router.get('/newPost', async (req, res) => {
+  if (!req.session.logged_in) {
+    res.redirect('/login');
+    return;
+  }
+
+  res.render('newPost',
+  {
+    logged_in: true,
+  })
+});
+
+router.get('/post/:id', async (req, res) => {
+  try {
+    const postData = await Blogs.findByPk(req.params.id, {
+      include: [{
+        model: User
+      }]
+    });
+    
+    const post = postData.get({ plain: true});
+
+    res.render('post', {
+      ...post,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

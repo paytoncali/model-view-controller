@@ -1,0 +1,17 @@
+[
+    {
+      "name": "Sal",
+      "description": "this is post 1",
+      "date_created": "4/15/2021"
+    },
+    {
+      "name": "Lernantino",
+      "description": "this is post 2",
+      "date_created": "3/20/2021"
+    },
+    {
+      "name": "Amiko",
+      "description": "this is post 3",
+      "date_created": "3/25/2021"
+    }
+]
