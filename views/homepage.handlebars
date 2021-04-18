@@ -1,5 +1,15 @@
 {{#each posts as |post|}}
-<p>{{name}}</p>
-<p>{{description}}</p>
-<p>{{date_created}}</p>
+<div class='row'>
+    <div class='col justify-content-center'>
+        <div class='card'>
+            <div class='card-header'>
+                {{title}}
+                <div style="text-align: right">Posted by {{name}} on {{format_date date_created}}</div>
+            </div>
+            <div class='card-body'>
+                <div class='card-text'>{{description}}</div>
+            </div>
+        </div>
+    </div>
+</div>
 {{/each}}
