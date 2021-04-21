@@ -3,8 +3,8 @@
     <div class='col justify-content-center'>
         <div class='card'>
             <div class='card-header'>
-                {{title}}
-                <div style="text-align: right">Posted by {{name}} on {{format_date date_created}}</div>
+                <a href='/post/{{post.id}}'>{{title}}</a>
+                <div style="text-align: right">Posted by {{user.name}} on {{format_date date_created}}</div>
             </div>
             <div class='card-body'>
                 <div class='card-text'>{{description}}</div>
@@ -12,7 +12,5 @@
         </div>
     </div>
 </div>
+</br>
 {{/each}}
-{{#if logged_in}}
-<a class="button btn btn-dark" href="/newpost" id="new-post-button">Add New Post</a>
-{{/if}}
