@@ -17,12 +17,14 @@
 <div class='row'>
     <div class='col justify-content-center'>
         <div class='card'>
-            <div class='card-header'> Add Comment</div>
+            <div class='card-header'>Add Comment</div>
             <div class='card-body'>
-                <textarea class="form-control" id="{{id}}-Textarea" rows="3"></textarea>
-                <button class='btn btn-dark justify-content-center'>Submit</button>
+                <textarea class="form-control" id="{{id}}-Textarea" id='commentForm' rows="3"></textarea>
+                </br>
+                <button class='btn btn-dark justify-content-center commentButton'>Submit</button>
             </div>
         </div>
     </div>
 </div>
 {{!-- {{/each}} --}}
+<script src="/js/newComment.js"></script>
