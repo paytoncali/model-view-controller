@@ -15,12 +15,15 @@
         Tech Blog
     </h1>
     <nav>
-      <a href="/">Home</a>
-      <a href="/profile">Profile</a>
+      <a href="/" type="button" class="btn btn-secondary">Home</a>
+      {{!-- <a href="/">Home</a> --}}
+      <a href="/profile" type="button" class="btn btn-secondary">Profile</a>
+      {{!-- <a href="/profile">Profile</a> --}}
     {{#if logged_in}}
-      <button class="btn" id="logout">Logout</button>
+      <button class="btn btn-secondary" id="logout">Logout</button>
     {{else}}
-      <a href="/login">Login</a>
+      <a href="/login" type="button" class="btn btn-secondary">Login</a>
+
       {{/if}}
     </nav>
   </header>
