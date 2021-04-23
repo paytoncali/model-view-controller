@@ -28,14 +28,14 @@
                 <a href='/post/{{post.id}}'>{{title}}</a>
                 <div style="text-align: right">Posted by {{user.name}} on {{format_date date_created}}</div>
             </div>
-            <div class='card-body' id='btn-delete'>
+            <div class='card-body'>
                 <div class='card-text'>{{description}}</div>
             </div>
         </div>  
         <div class="col-1"></div>
             <div class="col-10">
-            <button class="btn btn-primary" type="submit" post-id="{{post.id}}">EDIT</button>
-            <button class="btn btn-danger" type="submit" post-id="{{post.id}}">DELETE</button>
+            <button class="btn btn-primary" onclick="editButtonHandler(event)" post-id="{{post.id}}">EDIT</button>
+            <button class="btn btn-danger" onclick='delButtonHandler(event)' post-id="{{post.id}}">DELETE</button>
             </div>
             <div class="col-1"></div>
         </br>

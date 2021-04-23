@@ -22,6 +22,7 @@ const newFormHandler = async (event) => {
 };
 
 const delButtonHandler = async (event) => {
+  console.log("i was clicked", event);
     event.preventDefault();
       const id = event.target.getAttribute('post-id');
   
@@ -30,17 +31,17 @@ const delButtonHandler = async (event) => {
       });
   
     if (response.ok) {
-        console.log("button works")
-        // document.location.replace('/profile');
+        // console.log("button works")
+        document.location.replace('/profile');
     } else {
         alert('Failed to delete project');
     }
 };
 
-document
-.querySelector('.newpost-form')
-.addEventListener('submit', newFormHandler);
+const editButtonHandler = async (event) => {
+  event.preventDefault();
+}
+document.querySelector('.newpost-form').addEventListener('submit', newFormHandler);
 
-document
-.querySelector('#btn-delete')
-.addEventListener('click', delButtonHandler);
+// var delButton = document.querySelector('#btn-delete') 
+// addEventListener('click', delButtonHandler);

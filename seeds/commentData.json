@@ -2,6 +2,7 @@
     {
       "description": "this is comment 1",
       "date_created": "4/15/2021",
-      "post_id": 1
+      "post_id": 1,
+      "user_id": 2
     }
 ]
