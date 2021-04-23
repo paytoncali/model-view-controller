@@ -40,7 +40,26 @@ const delButtonHandler = async (event) => {
 
 const editButtonHandler = async (event) => {
   event.preventDefault();
+
+  const id = event.target.getAttribute('post-id');
+  const description = document.querySelector('#newpost-input').value;
+
+  const response = await fetch(`/api/post/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify({ description }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+  })
+
+  if (response.ok) {
+    console.log("button works")
+    // document.location.replace('/profile');
+} else {
+    alert('Failed to update post');
 }
+
+};
 document.querySelector('.newpost-form').addEventListener('submit', newFormHandler);
 
 // var delButton = document.querySelector('#btn-delete') 

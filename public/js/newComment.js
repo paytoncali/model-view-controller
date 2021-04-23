@@ -7,7 +7,7 @@ const newCommentHandler = async (event) => {
 
     console.log("i am being clicked")
     if (comment) {
-      const response = await fetch(`/api/comment`, {
+      const response = await fetch('/api/comment/', {
         method: 'POST',
         body: JSON.stringify({ comment, id }),
         headers: {
@@ -16,7 +16,7 @@ const newCommentHandler = async (event) => {
       });
   
       if (response.ok) {
-        console.log("comment saved");
+        console.log(`comment saved: ${comment}`);
         // document.location.replace(`/post/${id}`);
       } else {
         alert('Failed to create post');
