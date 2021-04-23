@@ -28,8 +28,10 @@
                 <a href='/post/{{post.id}}'>{{title}}</a>
                 <div style="text-align: right">Posted by {{user.name}} on {{format_date date_created}}</div>
             </div>
-            <div class='card-body' id="newpost-input">
-                <div class='card-text' contenteditable="true">{{description}}</div>
+            <div class='card-body' >
+                <textarea class="form-control" contenteditable="true" id="newpost-input-{{post.id}}" post-id="{{post.id}}" rows="3">{{description}}</textarea>
+
+                {{!-- <div class='card-text' contenteditable="true">{{description}}</div> --}}
             </div>
         </div>  
         <div class="col-1"></div>

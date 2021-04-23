@@ -3,9 +3,7 @@ const newCommentHandler = async (event) => {
   
     const comment = document.querySelector('.commentInput').value;
     const id = event.target.getAttribute('post-id');
-    console.log(`this post is ${id}`);
 
-    console.log("i am being clicked")
     if (comment) {
       const response = await fetch('/api/comment/', {
         method: 'POST',
@@ -16,8 +14,7 @@ const newCommentHandler = async (event) => {
       });
   
       if (response.ok) {
-        console.log(`comment saved: ${comment}`);
-        // document.location.replace(`/post/${id}`);
+        document.location.replace(`/post/${id}`);
       } else {
         alert('Failed to create post');
       }

@@ -42,15 +42,17 @@ const editButtonHandler = async (event) => {
   event.preventDefault();
 
   const id = event.target.getAttribute('post-id');
-  const description = document.querySelector('#newpost-input').value;
+  const description = document.querySelector(`#newpost-input-${id}`).value;
+  console.log(description);
+  console.log(id);
 
   const response = await fetch(`/api/post/${id}`, {
     method: 'PUT',
-    body: JSON.stringify({ description }),
+    body: JSON.stringify({ description, id }),
         headers: {
           'Content-Type': 'application/json',
         },
-  })
+  });
 
   if (response.ok) {
     console.log("button works")
@@ -58,7 +60,7 @@ const editButtonHandler = async (event) => {
 } else {
     alert('Failed to update post');
 }
-
+  
 };
 document.querySelector('.newpost-form').addEventListener('submit', newFormHandler);
 

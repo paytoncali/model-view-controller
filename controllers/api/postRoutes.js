@@ -17,10 +17,13 @@ router.post('/', withAuth, async (req, res) => {
 
 router.put('/:id', async (req, res) => {
     try {
-        const postData = await Blogs.update(req.body, {
+        const postData = await Blogs.update({
+            description: req.body.description,
+            post_id: req.body.id,
+            // user_id: req.session.user_id,
+        }, {
             where: {
                 id: req.params.id,
-                user_id: req.session.user_id,
             },
         });
         res.status(200).json(postData);
