@@ -55,8 +55,8 @@ const editButtonHandler = async (event) => {
   });
 
   if (response.ok) {
-    console.log("button works")
-    // document.location.replace('/profile');
+    // console.log("button works")
+    document.location.replace('/profile');
 } else {
     alert('Failed to update post');
 }
