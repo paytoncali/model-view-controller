@@ -32,6 +32,8 @@ GitHub: www.github.com/paytoncali
 Email Address: paytoncaliw@gmail.com
 
 ### Deployment
+
+![Tech Blog](images/techblog.png)
 https://frozen-stream-21398.herokuapp.com/
 https://github.com/paytoncali/model-view-controller.git
 
